@@ -1,0 +1,21 @@
+{% include "header.html" %}
+
+    <!-- Drop Down -->
+<select id="categoryDropdown" onchange="loadTable()">
+    <option value="batsmen">Batsmen</option>
+    <option value="bowlers">Bowlers</option>
+</select>
+  
+<!--  Table to display data -->
+
+<div class="table-wrapper">
+    <table id="playersTable">
+        <!-- Table body will be populated with data from the CSV file using JavaScript -->
+    </table>
+</div>
+    
+<!-- JS Code to display table -->
+<script src="../static/JS/table.js"></script>  
+
+
+{% include "footer.html" %}

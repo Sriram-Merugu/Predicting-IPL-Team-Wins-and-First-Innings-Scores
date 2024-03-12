@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="{{url_for('static', filename='./CSS/teams.css')}}">
+{% include "header.html" %}
+<div class="title">
+
+<h2 >Trophies🏆 Won By Each Team, Since 2008 </h2>
+</div>
+<!-- Cards -->
+<div class="column">
+    {% for team in team_winners %}
+    <!-- Each Card -->
+    <div class="card">
+        <!-- Front Part -->
+        <div class="front" style='background-image: url({{team["image"]}});'>
+        </div>
+        <!-- Back Part -->
+        <div class="back">
+            <div>
+
+                <div class="rating">
+                    <img src="../static/teams/trophy.jpeg" alt="#trophy">
+                </div>
+
+                <p class="overview">
+                    {{' |'.join(team['years_won'])}}
+                </p>
+
+            </div>
+        </div>
+
+
+    </div>
+    {% endfor %}
+
+</div>
+
+{% include "footer.html" %}

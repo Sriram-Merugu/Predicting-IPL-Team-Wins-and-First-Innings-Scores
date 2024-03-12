@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL - Indian Premier League</title>
+
+    <!-- Custome CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='./CSS/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='./CSS/footer.css') }}">
+
+    <!-- CSS or Hanburger -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body> 
+    <!-- Navbar -->
+    <nav class="nav">
+
+      <!-- Hamburger icon or triple bar -->
+      <i class="uil uil-bars navOpenBtn"></i>
+        
+      <!-- Logo -->
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkwLhK6KdVchqo5BxcADQeiU8THK5rEvuMyheuta7MMg&s" alt="IPL Logo" class="logo">
+        
+      <!-- Navbar-items  -->
+      <ul class="nav-links">
+          <i class="uil uil-times navCloseBtn"></i>
+          <li><a href="{{url_for('home')}}">Home</a></li>
+        <!-- Navbar with drop down -->
+          <li>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">Predictions
+                  <i class="fa fa-caret-down"></i>
+                </a>
+                <div class="dropdown-content">
+                  <a href="{{url_for('predict')}}">Score Predict</a>
+                  <a href="{{url_for('teamwin')}}">Win Predict</a>
+                </div>
+              </div> 
+          </li>
+          <li><a href="{{url_for('team')}}">Teams</a></li>         
+        </ul>
+    </nav>
+
+    <!-- Java Script  -->
+    <script src="../static/JS/script.js"></script>  

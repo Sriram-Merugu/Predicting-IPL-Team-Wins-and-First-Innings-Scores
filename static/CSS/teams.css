@@ -1,0 +1,127 @@
+/*Title*/
+.title{
+  padding:2rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* Container for cards */
+.column {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px; /* Adjust as needed */
+  margin: 0 auto;
+}
+
+/* Individual card */
+.card {
+  color: inherit;
+
+  width: calc(33.33% - 20px); /* Adjust the width for three cards per row */
+  margin-bottom: 20px; /* Add margin between cards */
+  padding: 3.5rem;
+  height: 400px;
+  min-height: 400px;
+  perspective: 1000px;
+  position: relative;
+}
+
+/* Front and back sides of the card */
+.front, .back {
+
+  border-radius: 6px;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: ease-in-out 600ms;
+}
+
+/* Front side of the card */
+.front {
+  background-size: cover;
+  padding: 2rem;
+  font-size: 1.618rem;
+  font-weight: 600;
+  color: #fff;
+  overflow: hidden;
+  background-size: cover;
+  font-family: Poppins, sans-serif;
+  position: relative;
+}
+
+.front:before {
+  position: absolute;
+  display: flex;
+  content: '';
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #1a9be6, #1a57e6);
+  opacity: 0.25;
+  z-index: -1;
+}
+
+/* Flip animation when hovering */
+.card:hover .front {
+  transform: rotateY(180deg);
+}
+
+.card:hover .back {
+  transform: rotateY(0deg);
+}
+
+/* Back side of the card */
+.back {
+  background: #fff;
+  transform: rotateY(-180deg);
+  top: -18rem; 
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  background-size: cover;
+  position: relative;
+
+}
+
+.back img {
+  margin-top: 4rem;
+  height: 10rem;
+
+}
+
+
+/* For screens smaller than 768px (typically mobile phones) */
+@media screen and (max-width: 768px) {
+  .column {
+    flex-direction: column; /* Change to a single column layout */
+    align-items: center; /* Center align cards */
+  }
+
+  .card {
+    width: calc(100% - 40px); /* Full width for mobile */
+  }
+}
+
+/* For screens between 769px and 1024px (typically tablets) */
+@media screen and (min-width: 715px) and (max-width: 900px) {
+  .column {
+    flex-direction: row; /* Revert back to row layout */
+    flex-wrap: wrap; /* Allow cards to wrap */
+    justify-content: center; /* Center align cards */
+  }
+
+  .card {
+    width: calc(50% - 20px); /* Two cards per row for tablets */
+  }
+}

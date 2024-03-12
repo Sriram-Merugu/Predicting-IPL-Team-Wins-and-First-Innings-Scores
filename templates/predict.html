@@ -1,0 +1,160 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='./CSS/predict.css') }}">
+{% include "header.html" %}
+
+
+{% if(x) %}
+<h1 class="title">Predicting the <span>Winner</span> of the Match</h1>
+{% else %}
+<h1 class="title">First Innings <span>Score</span> Predictor For Indian Premier League (IPL)</h1>
+{% endif %}
+
+<!-- Form for entering team names -->
+<div class="container">
+
+    <div class="main-container">
+
+        <div class="card-container">
+            <div class="carousel">
+                {% for i in range(1,6) %}
+                <div class="card">
+                    <img src="../static/images/img{{i}}.jpg" alt="Image {{i}}">
+                </div>
+                {% endfor %}
+
+                <!-- More card elements can be added as needed for additional images -->
+            </div>
+        </div>
+
+
+        <!-- Form content -->
+
+        {% if x==0 %}
+
+        <!-- Prediction Form -->
+
+        <form id="score-prediction-form" action="{{ url_for('predict') }}" method="POST"
+              onsubmit="return validateForm()">
+            <!-- Batting Team Dropdown -->
+            <select class="form-input align-center" name="batting-team" id="batting-team">
+                <option value="">--- Select a Batting team ---</option>
+                {% for team in teams %}
+                <option value="{{team}}">{{team}}</option>
+                {% endfor %}
+
+            </select>
+
+
+            <br>
+            <span id="batting-team-error" class="error"></span><br>
+
+            <!-- Bowling Team Dropdown -->
+            <select class="form-input align-center" name="bowling-team" id="bowling-team">
+                <option value="">--- Select a Bowling team ---</option>
+                {% for team in teams %}
+                <option value="{{team}}">{{team}}</option>
+                {% endfor %}
+
+            </select><br>
+            <span id="bowling-team-error" class="error"></span><br>
+
+            <input class="form-input" type="text" name="overs" id="overs" placeholder="Overs (>= 5.0) eg. 7.2"><br>
+            <span id="overs-error" class="error"></span><br>
+
+            <input class="form-input" type="text" name="runs" id="runs" placeholder="Runs eg. 64"><br>
+            <span id="runs-error" class="error"></span><br>
+
+            <input class="form-input" type="text" name="wickets" id="wickets" placeholder="Wickets eg. 4"><br>
+            <span id="wickets-error" class="error"></span><br>
+
+            <input class="form-input" type="text" name="runs_in_prev_5" id="runs_in_prev_5"
+                   placeholder="Runs scored in previous 5 Overs eg. 42"><br>
+            <span id="runs-in-prev-5-error" class="error"></span><br>
+
+            <input class="form-input" type="text" name="wickets_in_prev_5" id="wickets_in_prev_5"
+                   placeholder="Wickets taken in previous 5 Overs eg. 3"><br>
+            <span id="wickets-in-prev-5-error" class="error"></span><br>
+
+            <span id="submit-error" class="error"></span><br>
+            <input type="submit" class="myButton" value="Predict Score">
+            {% if lower_limit and upper_limit %}
+            <p class="result">The final predicted score (range): {{ lower_limit }} to {{ upper_limit }}</p>
+            {% endif %}
+
+
+        </form>
+
+        {% else %}
+        <!-- Prediction Form -->
+
+        <form action="{{ url_for('teamwinner') }}" method="POST" onsubmit="return validateFormWin()">
+            <!-- Batting Team Dropdown -->
+            <select class="form-input align-center " name="batting-team" id="batting-team">
+                <option value="">--- Select a Batting team ---</option>
+                {% for team in teams %}
+                <option value="{{team}}">{{team}}</option>
+                {% endfor %}
+
+            </select><br>
+            <span id="batting-team-error" class="error"></span><br>
+
+            <!-- Bowling Team Dropdown -->
+            <select class="form-input align-center" name="bowling-team" id="bowling-team">
+                <option value="">--- Select a bowling team ---</option>
+                {% for team in teams %}
+                <option value="{{team}}">{{team}}</option>
+                {% endfor %}
+
+            </select><br>
+            <span id="bowling-team-error" class="error"></span><br>
+
+            <!-- Toss Winner -->
+            <select class="form-input align-center" name="toss-winner" id="toss-winner">
+                <option value="">--- Select a team ---</option>
+                {% for team in teams %}
+                <option value="{{team}}">{{team}}</option>
+                {% endfor %}
+
+            </select><br>
+            <span id="toss-winner-error" class="error"></span><br>
+
+            <!-- Toss Decision -->
+            <select class="form-input align-center" name="toss-decision" id="toss-decision">
+                <option value="field">field</option>
+                <option value="bat">bat</option>
+            </select><br>
+
+            <!-- Venue -->
+            <select class="form-input align-center" name="venue" id="venue">
+                {% for v in venues %}
+                <option value="{{v}}">{{v}}</option>
+                {% endfor %}
+            </select><br>
+
+            <input type="submit" class="myButton" value="Winner">
+            {% if team %}
+            <p class="result">🎊<span style="font-weight: bold;">{{team}}</span> is the Winner🏆 of the match 🎊</p>
+            {% endif %}
+
+        </form>
+
+        {% endif %}
+
+
+        <div class="card-container">
+            <div class="carousel">
+                {% for i in range(6,11) %}
+                <div class="card">
+                    <img src="../static/images/img{{i}}.jpg" alt="Image {{i}}">
+                </div>
+                {% endfor %}
+                <!-- More card elements can be added as needed for additional images -->
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Validating the Form -->
+<script src="../static/JS/validate.js"></script>
+{% include "footer.html" %}

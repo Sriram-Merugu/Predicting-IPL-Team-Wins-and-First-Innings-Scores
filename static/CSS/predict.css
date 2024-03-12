@@ -1,0 +1,208 @@
+/* Title */
+
+.title {
+  padding-top: 1rem;
+  text-align: center;
+  /* Keeps the text centered */
+  color: #1c1b1b;
+  /* Hexadecimal color code for dark gray */
+  text-shadow: 1px 2px 3px rgba(137, 135, 135, 0.5);
+  /* Semitransparent shadow */
+  font-size: 2rem;
+  /* Adjust font size as needed */
+  font-weight: bold;
+  /* Makes the text bold */
+  margin: 1.5rem 0;
+  /* Adds some margin for spacing */
+}
+
+.title span {
+  color: #228234;
+}
+
+
+/* Container */
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+
+}
+
+
+
+.main-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 10rem;
+}
+
+.card-container {
+  width: 300px;
+  /* Adjust the width as needed */
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin: 10px;
+  /* Adjust margin as needed */
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.card {
+  min-width: 300px;
+  /* Adjust the width as needed */
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  height: 400px;
+}
+
+/* Forms */
+
+form {
+  top: 3rem;
+  position: relative;
+  width: 400px;
+  margin: auto;
+  padding: 20px;
+  font-size: medium;
+  color: rgb(0, 0, 0);
+}
+
+
+
+
+/* input[type=text],
+input[type=number],
+select,
+textarea {
+  width: 100%;
+  font-size: 1rem;
+  padding: 5px;
+  text-align: center;
+  margin-bottom: 20px;
+} */
+
+input[type=text],
+input[type=number],
+select,
+textarea {
+  width: 100%;
+  font-size: 1rem;
+  padding: 10px; /* Increased padding for better touch interaction */
+  text-align: left; /* Left-align text for better readability */
+  margin-bottom: 20px;
+  border: 1px solid #ccc; /* Add a border for visual separation */
+  border-radius: 5px; /* Rounded corners for a modern look */
+  transition: border-color 0.3s ease; /* Smooth transition for better feedback */
+}
+
+input[type=text]:focus,
+input[type=number]:focus,
+select:focus,
+textarea:focus {
+  border-color: #007bff; /* Change border color on focus for clarity */
+  outline: none; /* Remove default focus outline */
+}
+
+/* Style placeholder text for better visibility */
+::placeholder {
+  color: #999;
+}
+
+/* Style select dropdown arrow */
+
+
+
+
+.error {
+  color: red;
+}
+
+.shake {
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-5px);
+  }
+
+  50% {
+    transform: translateX(5px);
+  }
+
+  75% {
+    transform: translateX(-5px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+
+.myButton {
+  background-color: rgb(106, 203, 54);
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  font-size: 1.4rem;
+  border-radius: 4px;
+  margin: auto;
+  display: block;
+  margin-top: 15px;
+}
+
+.result{
+  padding-top: 1rem;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: .09em
+
+}
+
+
+@media screen and (max-width: 768px) {
+  .card-container {
+    display: none;
+  }
+
+  form {
+    width: 95%;
+  }
+
+  .title {
+    padding-top: 1rem;
+    text-align: center;
+    /* Keeps the text centered */
+    color: #1c1b1b;
+    /* Hexadecimal color code for dark gray */
+    text-shadow: 1px 2px 3px rgba(137, 135, 135, 0.5);
+    /* Semitransparent shadow */
+    font-size: 1.5rem;
+    /* Adjust font size as needed */
+    font-weight: bold;
+    /* Makes the text bold */
+    margin: 1.5rem 0;
+    /* Adds some margin for spacing */
+  }
+}
+
