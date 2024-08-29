@@ -59,7 +59,7 @@ This application was built using the following technologies:
 - Numpy: A library for working with arrays and matrices in Python.
 - Pickle: A library for serializing and deserializing Python objects.
 - Json: A library for working with JSON data in Python.
-Contributing
+
 
 
 ## License
